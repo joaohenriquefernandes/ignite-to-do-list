@@ -1,0 +1,11 @@
+.wrapper {
+  width: 46rem;
+  height: 100px;
+  /* background: var(--danger); */
+  margin: auto;
+  margin-top: calc(0px - 1.75rem);
+
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+}
