@@ -1,6 +1,6 @@
 import { Header } from "./components/Header"
 import styles from './App.module.css'
-import { NewTask } from "./components/NewTask"
+import { NewTaskInput } from "./components/NewTaskInput"
 
 export function App() {
 
@@ -8,7 +8,7 @@ export function App() {
     <>
       <Header />
       <main className={styles.wrapper}>
-        <NewTask />
+        <NewTaskInput />
       </main>
     </>
   )
