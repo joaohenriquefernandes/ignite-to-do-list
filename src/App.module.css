@@ -5,7 +5,11 @@
   margin: auto;
   margin-top: calc(0px - 1.75rem);
 
-  /* display: flex;
-  align-items: center;
-  justify-content: center; */
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.toDoList {
+
 }

@@ -1,6 +1,8 @@
 import { Header } from "./components/Header"
-import styles from './App.module.css'
 import { NewTaskInput } from "./components/NewTaskInput"
+import { Empty } from "./components/Empty"
+
+import styles from './App.module.css'
 
 export function App() {
 
@@ -9,6 +11,10 @@ export function App() {
       <Header />
       <main className={styles.wrapper}>
         <NewTaskInput />
+
+        <div className={styles.toDoList}>
+          <Empty />
+        </div>
       </main>
     </>
   )
