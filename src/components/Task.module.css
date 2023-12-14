@@ -1,0 +1,82 @@
+.container {
+  width: 100%;
+  height: 4.5rem;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--gray-400);
+  background: var(--gray-500);
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.06);
+
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.container input[type='checkbox'] {
+  appearance: none;
+
+  padding: 0.5rem;
+  border: 1px solid var(--blue);
+  border-radius: 50%;
+  background: var(--gray-500);
+  position: relative;
+
+  &:hover {
+    background: rgba(30, 111, 159, 0.2);
+    transition: 0.2s ease-in all;
+    cursor: pointer;
+  }
+
+}
+
+.container input[type='checkbox']:checked {
+  background: var(--purple-dark);
+  border: 1px solid var(--purple-dark);
+
+  &:hover {
+    background: var(--purple);
+    border: 1px solid var(--purple);
+  }
+}
+
+.container input[type='checkbox']:checked::after {
+  content: '';
+  display: block;
+  width: 4px;
+  height: 8px;
+  border: 2px solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  position: absolute;
+  top: 2px;
+  left: 5px;
+}
+
+.container .text {
+  color: var(--gray-100);
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.container .textScratched {
+  color: var(--gray-300);
+  font-size: 0.875rem;
+  text-decoration: line-through;
+  cursor: pointer;
+}
+
+.container button {
+  background: transparent;
+  border: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  color: var(--gray-300);
+
+  &:hover {
+    color: var(--danger);
+    cursor: pointer;
+    transition: 0.2s ease-in all;
+  }
+}

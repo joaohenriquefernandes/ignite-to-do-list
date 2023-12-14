@@ -7,7 +7,7 @@ export function NewTaskInput() {
       <input type="text" placeholder='Adicione uma nova tarefa'/>
       <button type='submit'>
         <strong>Criar</strong>
-        <PlusCircle size={16} weight='bold'/>
+        <PlusCircle size={18} weight='bold'/>
       </button>
     </form>
   )

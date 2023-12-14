@@ -1,8 +1,8 @@
 import { Header } from "./components/Header"
 import { NewTaskInput } from "./components/NewTaskInput"
-import { Empty } from "./components/Empty"
 
 import styles from './App.module.css'
+import { TasksList } from "./components/TasksList"
 
 export function App() {
 
@@ -13,7 +13,7 @@ export function App() {
         <NewTaskInput />
 
         <div className={styles.toDoList}>
-          <Empty />
+          <TasksList />
         </div>
       </main>
     </>
