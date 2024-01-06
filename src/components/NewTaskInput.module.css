@@ -13,6 +13,7 @@
   background: var(--gray-500);
   border-radius: 8px;
   border: 1px solid var(--gray-700);
+  color: var(--gray-100);
 
   &::placeholder {
     color: var(--gray-300);
