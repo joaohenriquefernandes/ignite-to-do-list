@@ -1,13 +1,14 @@
-import { ITask } from '../App'
-import { Empty } from './Empty'
-import { Task } from './Task'
-import styles from './TasksList.module.css'
+import { ITask } from '../App';
+import { Empty } from './Empty';
+import { Task } from './Task';
+import styles from './TasksList.module.css';
 
 interface TasksListProps {
-  tasks: ITask[]
+  tasks: ITask[];
+  onDelete: (id: number) => void;
 }
 
-export function TasksList({ tasks }: TasksListProps) {
+export function TasksList({ tasks, onDelete }: TasksListProps) {
 
   const checkedTasksCounter = tasks.reduce((prevValue, currentTask) => {
     if (currentTask.isChecked) {
@@ -37,6 +38,8 @@ export function TasksList({ tasks }: TasksListProps) {
                 key={task.id}
                 content={task.text}
                 isChecked={task.isChecked}
+                id={task.id}
+                onDelete={onDelete}
               />))
             : <Empty />
         }

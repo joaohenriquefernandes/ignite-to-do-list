@@ -26,6 +26,12 @@ export function App() {
     setTasks( prevState => [...prevState, newTask])
   }
 
+  function deleteTask(id: number) {
+    const filteredTasks = tasks.filter(task => task.id !== id)
+
+    setTasks(filteredTasks)
+  }
+
 
   return (
     <>
@@ -38,6 +44,7 @@ export function App() {
         <div className={styles.toDoList}>
           <TasksList
             tasks={tasks}
+            onDelete={deleteTask}
           />
         </div>
       </main>
