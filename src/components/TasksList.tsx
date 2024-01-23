@@ -5,18 +5,12 @@ import styles from './TasksList.module.css';
 
 interface TasksListProps {
   tasks: ITask[];
+  count: number
   onDelete: (id: number) => void;
+  onToggleTaskStatus: (id: number,  value: boolean) => void
 }
 
-export function TasksList({ tasks, onDelete }: TasksListProps) {
-
-  const checkedTasksCounter = tasks.reduce((prevValue, currentTask) => {
-    if (currentTask.isChecked) {
-      return prevValue + 1
-    }
-
-    return prevValue
-  }, 0)
+export function TasksList({ tasks, onDelete, onToggleTaskStatus, count }: TasksListProps) {
 
   return (
     <>
@@ -28,19 +22,21 @@ export function TasksList({ tasks, onDelete }: TasksListProps) {
           </div>
           <div className={styles.tasksEnds}>
             <h4>Concluídas</h4>
-            <strong>{`${checkedTasksCounter} de ${tasks.length}`}</strong>
+            <strong>{`${count} de ${tasks.length}`}</strong>
           </div>
         </div>
         {
-          tasks
+          tasks.length !== 0
             ? tasks.map(task => (
               <Task
                 key={task.id}
                 content={task.text}
-                isChecked={task.isChecked}
                 id={task.id}
+                isChecked={task.isChecked}
                 onDelete={onDelete}
-              />))
+                onToggleTaskStatus={onToggleTaskStatus}
+              />)
+            )
             : <Empty />
         }
       </div>

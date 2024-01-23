@@ -1,19 +1,18 @@
 import { Trash } from 'phosphor-react';
-import { useState } from 'react';
 import styles from './Task.module.css';
 
 interface ITaskProps {
   content: string;
+  id: number;
   isChecked: boolean;
-  id: number
   onDelete: (id: number) => void;
+  onToggleTaskStatus: (id: number,  value: boolean) => void;
 }
 
-export function Task({ content, isChecked, id, onDelete }: ITaskProps) {
-  const [checked, setChecked] = useState(isChecked)
+export function Task({ content, id, onDelete, isChecked, onToggleTaskStatus }: ITaskProps) {
 
-  function checkedToggle() {
-    setChecked(prevState => !prevState)
+  function handleTaskToggle() {
+    onToggleTaskStatus(id, !isChecked)
   }
 
   function handleDeleteTask(){
@@ -22,11 +21,12 @@ export function Task({ content, isChecked, id, onDelete }: ITaskProps) {
 
   return (
     <div className={styles.container}>
-      <input type="checkbox" name="" id="task" checked={checked} onChange={checkedToggle}/>
-      <label htmlFor="task" className={checked ? styles.textScratched : styles.text }>{content}</label>
-      <button onClick={handleDeleteTask}>
-        <Trash size={20}/>
-      </button>
+        <input type="checkbox" name="" id="task" checked={isChecked} onChange={handleTaskToggle}/>
+        <label htmlFor="task" className={isChecked ? styles.textScratched : styles.text } >{content}</label>
+          <button onClick={handleDeleteTask}>
+            <Trash size={20}/>
+          </button>
+
     </div>
   )
 }

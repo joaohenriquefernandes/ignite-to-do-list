@@ -32,6 +32,26 @@ export function App() {
     setTasks(filteredTasks)
   }
 
+  function handleToggleTask(id: number,  value: boolean) {
+    const updatedTasks = tasks.map((task) => {
+      if (task.id === id) {
+        return { ...task, isChecked: value }
+      }
+
+      return { ...task }
+    })
+
+    setTasks(updatedTasks)
+  }
+
+  const checkedTasksCounter = tasks.reduce((prevValue, currentTask) => {
+    if (currentTask.isChecked) {
+      return prevValue + 1
+    }
+
+    return prevValue
+  }, 0)
+
 
   return (
     <>
@@ -45,6 +65,8 @@ export function App() {
           <TasksList
             tasks={tasks}
             onDelete={deleteTask}
+            onToggleTaskStatus={handleToggleTask}
+            count={checkedTasksCounter}
           />
         </div>
       </main>
